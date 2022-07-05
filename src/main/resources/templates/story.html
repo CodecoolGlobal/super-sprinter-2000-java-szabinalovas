@@ -6,7 +6,7 @@
 </head>
 <body>
 <div>
-    <form action="#" th:action="@{/add-story}" th:object="${userStory}" method="post">
+    <form action="#" th:action="@{/story}" th:object="${userStory}" method="post">
         <div>
             <label for="storyTitle">Story title</label>
             <input type="text" min="5" max="100" th:field="*{storyTitle}" id="storyTitle" placeholder="Story title">

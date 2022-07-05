@@ -4,7 +4,10 @@ import com.codecool.supersprinter.model.UserStory;
 import com.codecool.supersprinter.service.UserStoryService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 public class UserStoryController {
@@ -23,10 +26,10 @@ public class UserStoryController {
 
     @GetMapping("/add")
     public String showAddNewStoryForm(@ModelAttribute("userStory") UserStory userStory) {
-        return "add-story";
+        return "story";
     }
 
-    @PostMapping("/add-story")
+    @PostMapping("/story")
     public String save(@ModelAttribute("userStory") UserStory userStory, Model model) {
         model.addAttribute("userStory", service.save(userStory));
         return "redirect:/";
