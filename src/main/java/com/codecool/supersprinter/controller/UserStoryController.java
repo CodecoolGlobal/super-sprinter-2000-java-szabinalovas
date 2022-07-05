@@ -15,23 +15,30 @@ public class UserStoryController {
         this.service = service;
     }
 
-    @PostMapping
-    public UserStory save(@RequestBody UserStory userStory) {
-        return service.save(userStory);
-    }
-
     @GetMapping()
     public String findAll(Model model) {
         model.addAttribute("userStories", service.findAll());
         return "index";
     }
 
-    @GetMapping("/{id}")
-    public UserStory findById(@PathVariable("id") Long id) {
-        return service.findById(id);
+    @GetMapping("/add")
+    public String showAddNewStoryForm(@ModelAttribute("userStory") UserStory userStory) {
+        return "add-story";
     }
 
-    @PutMapping("/{id}")
+    @PostMapping("/add-story")
+    public String save(@ModelAttribute("userStory") UserStory userStory, Model model) {
+        model.addAttribute("userStory", service.save(userStory));
+        return "redirect:/";
+    }
+
+    @GetMapping("/story/{id}")
+    public String findById(@PathVariable("id") Long id) {
+        service.findById(id);
+        return "redirect:/index";
+    }
+
+    @PutMapping("/update/{id}")
     public UserStory update(@PathVariable("id") Long id, @RequestBody UserStory userStory) {
         return service.update(id, userStory);
     }

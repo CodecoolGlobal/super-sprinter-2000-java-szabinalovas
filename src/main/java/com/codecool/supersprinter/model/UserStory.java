@@ -19,7 +19,7 @@ public class UserStory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String storyTitle;
-    private String userStory;
+    private String usersStory;
     private String acceptanceCriteria;
     private double estimation;
     private String status;

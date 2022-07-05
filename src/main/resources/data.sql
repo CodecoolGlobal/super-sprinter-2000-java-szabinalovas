@@ -1,4 +1,4 @@
-insert into user_story (story_title, user_story, acceptance_criteria, estimation, status)
+insert into user_story (story_title, users_story, acceptance_criteria, estimation, status)
 values ('Show list of products', 'As a shopper I want to view a list of products so I can select.',
         'See a thumbnail image for each product. Search for a product. View products by category.',
         4, 'done'),

@@ -24,13 +24,13 @@ public class UserStoryService {
     }
 
     public UserStory findById(Long id) {
-        return repository.findById(id).orElseThrow();
+        return repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
     }
 
     public UserStory update(Long id, UserStory userStory) {
         UserStory userStoryToModify = repository.findById(id).orElseThrow();
         userStoryToModify.setStoryTitle(userStory.getStoryTitle());
-        userStoryToModify.setUserStory(userStory.getUserStory());
+        userStoryToModify.setUsersStory(userStory.getUsersStory());
         userStoryToModify.setAcceptanceCriteria(userStory.getAcceptanceCriteria());
         userStoryToModify.setEstimation(userStory.getEstimation());
         userStoryToModify.setStatus(userStory.getStatus());

@@ -5,7 +5,7 @@
 </head>
 <body>
 <div>
-    <h1>List of User Stories</h1>
+    <h1>User Stories</h1>
     <hr>
     <table>
         <thead>
@@ -20,14 +20,14 @@
         <tbody>
         <tr th:each="userStory:${userStories}">
             <td th:text="${userStory.getStoryTitle()}"></td>
-            <td th:text="${userStory.getUserStory()}"></td>
+            <td th:text="${userStory.getUsersStory()}"></td>
             <td th:text="${userStory.getAcceptanceCriteria()}"></td>
             <td th:text="${userStory.getEstimation()}"></td>
             <td th:text="${userStory.getStatus()}"></td>
         </tr>
         </tbody>
     </table>
-
+    <p><a href="/add">Add new User Story</a></p>
 </div>
 </body>
 </html>
