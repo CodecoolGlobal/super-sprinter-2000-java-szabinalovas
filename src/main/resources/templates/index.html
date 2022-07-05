@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Super sprinter</title>
+</head>
+<body>
+<div>
+    <h1>List of User Stories</h1>
+    <hr>
+    <table>
+        <thead>
+        <tr>
+            <th>Story Title</th>
+            <th>User Story</th>
+            <th>Acceptance Criteria</th>
+            <th>Estimation (hour)</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="userStory:${userStories}">
+            <td th:text="${userStory.getStoryTitle()}"></td>
+            <td th:text="${userStory.getUserStory()}"></td>
+            <td th:text="${userStory.getAcceptanceCriteria()}"></td>
+            <td th:text="${userStory.getEstimation()}"></td>
+            <td th:text="${userStory.getStatus()}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>

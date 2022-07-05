@@ -2,12 +2,11 @@ package com.codecool.supersprinter.controller;
 
 import com.codecool.supersprinter.model.UserStory;
 import com.codecool.supersprinter.service.UserStoryService;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
-@RestController
-@RequestMapping("/user_story")
+@Controller
 public class UserStoryController {
 
     private final UserStoryService service;
@@ -21,9 +20,10 @@ public class UserStoryController {
         return service.save(userStory);
     }
 
-    @GetMapping
-    public List<UserStory> findAll() {
-        return service.findAll();
+    @GetMapping()
+    public String findAll(Model model) {
+        model.addAttribute("userStories", service.findAll());
+        return "index";
     }
 
     @GetMapping("/{id}")
