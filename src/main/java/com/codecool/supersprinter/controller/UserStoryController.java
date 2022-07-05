@@ -4,10 +4,10 @@ import com.codecool.supersprinter.model.UserStory;
 import com.codecool.supersprinter.service.UserStoryService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UserStoryController {
@@ -36,13 +36,15 @@ public class UserStoryController {
     }
 
     @GetMapping("/story/{id}")
-    public String findById(@PathVariable("id") Long id) {
-        service.findById(id);
-        return "redirect:/index";
+    public String showUpdateForm(@PathVariable("id") Long id, Model model) {
+        UserStory userStory = service.findById(id);
+        model.addAttribute("userStory", userStory);
+        return "update";
     }
 
-    @PutMapping("/update/{id}")
-    public UserStory update(@PathVariable("id") Long id, @RequestBody UserStory userStory) {
-        return service.update(id, userStory);
+    @PostMapping("/update/{id}")
+    public String update(@PathVariable("id") Long id, @ModelAttribute("userStory") UserStory userStory, Model model) {
+        service.save(userStory);
+        return "redirect:/";
     }
 }
