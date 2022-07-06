@@ -1,15 +1,15 @@
-insert into user_story (story_title, users_story, acceptance_criteria, estimation, status)
+insert into user_story (story_title, users_story, acceptance_criteria, business_value, estimation, status)
 values ('Show list of products', 'As a shopper I want to view a list of products so I can select.',
         'See a thumbnail image for each product. Search for a product. View products by category.',
-        4, 'done'),
+        400, 4, 'done'),
        ('Checkout from any page', 'As a Shopper I want to check out so I can get my products shipped to me.',
         'Trigger checkout from any page, if there are items in the cart. Show total including tax and shipping before finalizing.',
-        3.5, 'done'),
+        700, 3.5, 'done'),
        ('Modify list of products',
         'As an administrator I want to modify the list of products so I can adjust our offerings over times.',
         'Add and remove products. Modify product images. Select category for the product.',
-        2, 'in progress'),
+        600, 2, 'in progress'),
        ('Print picking report',
         'As a fulfillment specialist I want to print a picking report so I can prepare products to ship.',
         'Print a report for all open orders since the last time I printed the report. Sort orders by time submitted.',
-        1.5, 'in progress');
+        500, 1.5, 'in progress');

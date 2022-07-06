@@ -28,6 +28,7 @@ public class UserStory {
     private String usersStory;
     @Size(min = 5, max = 400, message = "Acceptance criteria length should remain between 5 and 400 characters")
     private String acceptanceCriteria;
+    private int businessValue;
     @DecimalMin("0.5")
     @DecimalMax("8.0")
     private double estimation;

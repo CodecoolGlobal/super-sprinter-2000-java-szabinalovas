@@ -4,7 +4,8 @@ create table user_story
     story_title         varchar(100),
     users_story         varchar(400),
     acceptance_criteria varchar(400),
-    estimation          double not null,
+    business_value      integer not null,
+    estimation          double  not null,
     status              varchar(20),
     primary key (id)
 );
