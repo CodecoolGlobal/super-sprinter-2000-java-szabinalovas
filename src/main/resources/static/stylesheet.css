@@ -58,3 +58,9 @@ input, textarea, select {
     text-decoration: none;
     text-shadow: 0px 1px 0px #ffffff;
 }
+
+.error{
+    margin: 10px;
+    color: red;
+    font-size: smaller;
+}

@@ -11,20 +11,30 @@
     <form action="#" th:action="@{/story}" th:object="${userStory}" method="post">
         <div>
             <label for="storyTitle">Story title: </label>
+            <div>
+                <span th:if="${#fields.hasErrors('storyTitle')}" th:errors="*{storyTitle}" class="error"></span>
+            </div>
         </div>
         <div>
             <input type="text" min="5" max="100" th:field="*{storyTitle}" id="storyTitle" placeholder="Story title">
         </div>
         <div>
-            <label for="userStory">User Story: </label>
+            <label for="usersStory">User Story: </label>
+            <div>
+                <span th:if="${#fields.hasErrors('usersStory')}" th:errors="*{usersStory}" class="error"></span>
+            </div>
         </div>
         <div>
-            <textarea id="userStory" max="400" rows="4" cols="50" th:field="*{usersStory}"
+            <textarea id="usersStory" max="400" rows="4" cols="50" th:field="*{usersStory}"
                       placeholder="As a <persona>, I want <what?> so that <why?>">
             </textarea>
         </div>
         <div>
             <label for="acceptanceCriteria">Acceptance criteria: </label>
+            <div>
+                <span th:if="${#fields.hasErrors('acceptanceCriteria')}" th:errors="*{acceptanceCriteria}"
+                      class="error"></span>
+            </div>
         </div>
         <div>
             <textarea type="text" max="400" rows="4" cols="50" th:field="*{acceptanceCriteria}" id="acceptanceCriteria"
